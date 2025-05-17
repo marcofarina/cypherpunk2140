@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica certificato Proof of Knowledge - Cypherpunk 2140</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body id="page-top-anchor"> <header id="main-header">
+    <div class="container">
+        <nav class="header-nav">
+            <a href="#introduzione">Introduzione</a>
+            <a href="#meccanismo-verifica">Prova crittografica</a>
+            <a href="#firma-gpg">Firma GPG</a>
+            <a href="#timestamping">Timestamping</a>
+            <a href="#come-verificare">Verifica</a>
+            <a href="#conclusioni">Conclusioni</a>
+        </nav>
+
+        <button id="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="side-menu">
+            <svg class="hamburger-icon w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line class="line1" x1="3" y1="6" x2="21" y2="6"/>
+                <line class="line2" x1="3" y1="12" x2="21" y2="12"/>
+                <line class="line3" x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<aside id="side-menu">
+    <nav>
+        <a href="index.html#hero">Home corso</a>
+        <a href="programma.html">Programma dettagliato</a>
+        <a href="certificazione.html">Verifica la certificazione</a>
+        <a href="https://www.jcmaxwell.edu.it" target="_blank" rel="noopener noreferrer"><- Torna al sito del Maxwell</a>
+    </nav>
+</aside>
+<div id="menu-overlay"></div>
+
+<main>
+    <section id="introduzione" class="section-padding">
+        <div class="container">
+            <div class="glassmorphism p-6 md:p-8 neon-border-cyan">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-orbitron text-center mb-10 neon-text-yellow">
+                    Verifica il tuo diploma "Proof of Knowledge"
+                </h1>
+                <div class="prose-custom text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        Se stai leggendo questa pagina, molto probabilmente hai ricevuto un certificato "Proof of Knowledge" per il corso Cypherpunk 2140 che hai frequentato. Congratulazioni per il tuo risultato!
+                    </p>
+                    <p>
+                        In questo tutorial, scopriremo come il Corso Cypherpunk 2140 emette prove verificabili per i certificati "Proof of Knowledge". Successivamente, descriveremo come verificare l'autenticità di queste prove.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="meccanismo-verifica">
+        <div class="container">
+            <div class="glassmorphism p-6 md:p-8 neon-border-pink">
+                <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Meccanismo di firma e verifica dei certificati</h2>
+                <div class="prose-custom text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        Il Corso Cypherpunk 2140 prende ispirazione dalla certificazione ₿-CERT di <a href="https://planb.network/" target="_blank" rel="noopener noreferrer"  class="neon-text-subtle-cyan hover:neon-text-cyan">Plan₿ Network</a> sia nella modalità d'esame, sia nel meccanismo di firma e verifica dei cartificati. Anche nel corso Cypherpunk 2140 firmiamo crittograficamente gli attestati e li marchiamo temporalmente utilizzando la Timechain (cioè la blockchain di Bitcoin), attraverso un meccanismo di prova che si basa su due operazioni crittografiche:
+                    </p>
+                    <ul>
+                        <li>Una firma GPG su un file di testo che sintetizza i tuoi risultati e i dettagli del certificato.</li>
+                        <li>La marcatura temporale (timestamping) dello stesso file firmato tramite <a href="https://opentimestamps.org/" target="_blank" rel="noopener noreferrer" class="neon-text-subtle-cyan hover:neon-text-cyan">OpenTimestamps</a>.</li>
+                    </ul>
+                    <p>
+                        La prima operazione ti permette di confermare l'emittente del certificato (il prof. Marco Farina che ha tenuto il corso Cypherpunk 2140), mentre la seconda ti consente di verificare la data della sua emissione. Questo semplice meccanismo di prova ci permette di emettere certificati con prove crittografiche che chiunque può verificare in modo indipendente.
+                    </p>
+                    <p>
+                        Grazie a questo meccanismo, qualsiasi tentativo di alterare anche il più piccolo dettaglio del tuo certificato risulterà in un hash SHA-256 completamente diverso del file firmato, rivelando istantaneamente qualsiasi manomissione, poiché sia la firma che la marcatura temporale non saranno più valide. Inoltre, se qualcuno tentasse di falsificare maliziosamente attestati per conto del Corso Cypherpunk 2140, una semplice verifica della firma smaschererebbe la frode.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="firma-gpg" class="section-padding">
+        <div class="container">
+            <div class="glassmorphism p-6 md:p-8 neon-border-cyan">
+                <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Come funziona la firma GPG?</h2>
+                <div class="prose-custom text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        La firma GPG è generata utilizzando un software open-source chiamato GNU Privacy Guard (GnuPG o GPG). Questo software permette agli utenti di creare facilmente chiavi private, firmare e verificare firme, e cifrare e decifrare file. Ai fini di questo tutorial, è importante notare che il Corso Cypherpunk 2140 utilizza GPG per creare le proprie chiavi privata/pubblica e per firmare tutti gli attestati "Proof of Knowledge".
+                    </p>
+                    <p>
+                        Se qualcuno vuole verificare l'autenticità di un file firmato, può usare GPG per importare la chiave pubblica dell'emittente e verificarla.
+                    </p>
+                    <p>
+                        Per coloro che sono curiosi e vogliono saperne di più su questo fantastico software, potete fare riferimento al <a href="https://www.gnupg.org/gph/it/manual.html" target="_blank" rel="noopener noreferrer" class="neon-text-subtle-cyan hover:neon-text-cyan">"Manuale di GNU Privacy Guard"</a> (o altre risorse online).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timestamping">
+        <div class="container">
+            <div class="glassmorphism p-6 md:p-8 neon-border-pink">
+                <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Come funziona il timestamping?</h2>
+                <div class="prose-custom text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        Chiunque può usare OpenTimestamps per marcare temporalmente un file e ottenere una prova verificabile della sua esistenza. In altre parole, non fornisce la prova di quando il file è stato creato, ma piuttosto la prova che il file esisteva non più tardi di un momento specifico nel tempo.
+                    </p>
+                    <p>
+                        OpenTimestamps fornisce questo servizio gratuitamente utilizzando un metodo altamente efficiente per memorizzare la prova nella blockchain di Bitcoin. Impiega l'algoritmo di hash SHA-256 per creare un identificatore univoco per il tuo file e costruisce un albero di Merkle utilizzando gli hash dei file inviati da altri utenti. Solo l'hash della struttura dell'albero di Merkle è inserito in una transazione <code>OP_RETURN</code>, garantendo un modo sicuro e compatto per verificare l'esistenza del file.
+                    </p>
+                    <p>
+                        Una volta che questa transazione entra in un blocco, chiunque con il file iniziale e il file <code>.ots</code> associato può verificare l'autenticità della marcatura temporale. Nella seconda parte del tutorial, vedremo come verificare il tuo certificato attraverso un terminale e attraverso un'interfaccia grafica sul sito di OpenTimestamps.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="come-verificare" class="section-padding">
+        <div class="container">
+            <div class="glassmorphism p-6 md:p-8 neon-border-cyan">
+                <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Come verificare un certificato "Proof of Knowledge"</h2>
+                <div class="prose-custom text-gray-300 text-lg leading-relaxed">
+                    <h3>Passo 1: scarica i file del tuo certificato</h3>
+                    <p>
+                        Dovresti aver ricevuto (o poter scaricare dal Drive della scuola) un file compresso (solitamente <code>.zip</code>) contenente i materiali del tuo certificato.
+                    </p>
+                    <p>
+                        Estrai il contenuto cliccando con il tasto destro sul file <code>.zip</code> e selezionando "Estrai" o un comando simile. Troverai tre file diversi:
+                    </p>
+                    <ul>
+                        <li>Un file di testo firmato (es. <code>certificato_cypherpunk2140_COGNOME.txt.asc</code>)</li>
+                        <li>Un file OpenTimestamps (OTS) (es. <code>certificato_cypherpunk2140_COGNOME.txt.ots</code>)</li>
+                        <li>Un certificato in formato PDF (es. <code>certificato_cypherpunk2140_COGNOME.pdf</code>)</li>
+                    </ul>
+                    <p>
+                        Nota che i file .asc sono semplicemente file di testo ASCII con una firma GPG allegata. Puoi aprirli con qualsiasi editor di testo (come Notepad su Windows o TextEdit su macOS) e visualizzare il contenuto. Non è necessario alcun software speciale per aprirli.
+                    </p>
+
+                    <h3>Passo 2: come puoi verificare la firma del file di testo?</h3>
+                    <p>
+                        Per prima cosa, vai nella cartella in cui hai estratto i file e apri un terminale (su Windows, puoi cliccare con il tasto destro tenendo premuto Shift nella finestra della cartella e selezionare "Apri finestra PowerShell qui" o "Apri nel Terminale"; su Linux/macOS, solitamente "Apri nel terminale"). Quindi, segui le istruzioni qui sotto.
+                    </p>
+                    <p>
+                        Importa la chiave PGP pubblica del Corso Cypherpunk 2140 con il seguente comando. <strong>Nota:</strong> Sostituisci l'URL sottostante con quello corretto fornito per la chiave pubblica del corso.
+                    </p>
+                    <pre><code class="language-bash">curl -s [URL_DELLA_TUA_CHIAVE_PUBBLICA_GPG.asc] | gpg --import</code></pre>
+                    <p>
+                        Dovresti vedere un messaggio simile al seguente se hai importato con successo la Chiave PGP:
+                    </p>
+                    <pre><code class="language-text">gpg: key XXXXXXXX: public key "Prof. Marco Farina &lt;marco.farina@jcmaxwell.it&gt;" imported
+gpg: Total number processed: 1
+gpg:               imported: 1</code></pre>
+                    <p>
+                        <strong>NOTA:</strong> se vedi che 1 chiave è stata elaborata e 0 chiavi sono state importate, probabilmente significa che hai già importato la stessa chiave in precedenza, il che va benissimo.
+                    </p>
+                    <p>
+                        Verifica la firma del certificato usando il seguente comando (sostituisci <code>nome_file_certificato.txt</code> con il nome effettivo del tuo file <code>.txt</code>):
+                    </p>
+                    <pre><code class="language-bash">gpg --verify nome_file_certificato.txt</code></pre>
+                    <p>
+                        Questo comando dovrebbe mostrarti i dettagli sulla firma, inclusi:
+                    </p>
+                    <ul>
+                        <li>Chi l'ha firmato (prof. Marco Farina)</li>
+                        <li>Quando è stato firmato</li>
+                        <li>Se la firma è valida o meno</li>
+                    </ul>
+                    <p>
+                        Questo è un esempio del risultato:
+                    </p>
+                    <pre><code class="language-text">gpg: Firma effettuata Sab 17 Mag 02:02:36 2025 CEST
+gpg: utilizzando la chiave EDDSA 44021BD1F34AE971889CF873C03EE33A2FFE9173
+gpg: Firma valida da "Marco Farina (Chiave per firma certificati Cypherpunk2140) marco.farina@jcmaxwell.it" [definitivo]</code></pre>
+                    <p>
+                        Se vedi un messaggio come "BAD signature" (Firma NON VALIDA), significa che il file è stato manomesso.
+                    </p>
+
+                    <h3>Passo 3: verifica del timestamp di OpenTimestamps</h3>
+                    <strong>Verifica tramite Interfaccia Grafica</strong>
+                    <ol>
+                        <li>Visita il sito di OpenTimestamps: <a href="https://opentimestamps.org/" target="_blank" rel="noopener noreferrer" class="neon-text-subtle-cyan hover:neon-text-cyan">https://opentimestamps.org/</a></li>
+                        <li>Clicca sul pulsante "Stamp & Verify".</li>
+                        <li>Trascina il file OTS (es. <code>nome_file_certificato.txt.ots</code>) nell'area designata.</li>
+                        <li>Trascina il file marcato temporalmente (es. <code>nome_file_certificato.txt</code>) nell'area designata.</li>
+                    </ol>
+                    <p>
+                        Il sito verificherà automaticamente il timestamp di OpenTimestamps e mostrerà il risultato.
+                        Se vedi un messaggio che indica che il timestamp è valido e attesta l'esistenza del file in un determinato blocco Bitcoin, la verifica è positiva.
+                    </p>
+
+                    <h4>Metodo tramite riga di comando (CLI)</h4>
+                    <p>
+                        <strong>NOTA:</strong> questa procedura richiederà un nodo Bitcoin locale in esecuzione per una verifica completamente trustless, oppure si affiderà a calendari pubblici.
+                    </p>
+                    <p>
+                        Installa il client OpenTimestamps dal repository ufficiale eseguendo il seguente comando (potrebbe richiedere Python e pip installati):
+                    </p>
+                    <pre><code class="language-bash">pip install opentimestamps-client</code></pre>
+                    <p>
+                        Naviga nella directory contenente i file del certificato estratti.
+                        Esegui il seguente comando per verificare il timestamp (sostituisci <code>nome_file_certificato.txt.ots</code> con il nome effettivo del tuo file <code>.ots</code>):
+                    </p>
+                    <pre><code class="language-bash">ots verify nome_file_certificato.txt.ots</code></pre>
+                    <p>
+                        Questo comando:
+                    </p>
+                    <ul>
+                        <li>Controllerà il timestamp rispetto alla blockchain di Bitcoin (o calendari pubblici).</li>
+                        <li>Ti mostrerà esattamente quando il file è stato marcato temporalmente.</li>
+                        <li>Confermerà l'autenticità del timestamp.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conclusioni" class="pb-12">
+        <div class="container">
+            <div class="glassmorphism p-6 md:p-8 neon-border-cyan">
+                <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Conclusioni</h2>
+                <div class="prose-custom text-gray-300 text-lg leading-relaxed">
+                    <p>
+                        La verifica ha successo se vengono visualizzati <strong>entrambi</strong> i seguenti messaggi:
+                    </p>
+                    <ul>
+                        <li>La firma GPG è riportata come <strong class="neon-text-subtle-yellow">"Firma effettuata da Marco Farina"</strong> (o simile, indicando una firma valida).</li>
+                        <li>La verifica di OpenTimestamps mostra un timestamp specifico di un blocco Bitcoin e riporta <strong class="neon-text-subtle-yellow">"Success! Bitcoin block [altezza_blocco] attests data existed as of [timestamp]"</strong> (o un messaggio equivalente di successo).</li>
+                    </ul>
+                    <p>
+                        Ora che sai come il Corso Cypherpunk 2140 emette prove verificabili per qualsiasi certificato "Proof of Knowledge" e puoi facilmente verificarne l'integrità.
+                    </p>
+                    <p>
+                        Un ringraziamento non formale va a <em>Plan₿ Network</em> per aver ispirato questo meccanismo di prova e per il loro lavoro nel rendere la certificazione Bitcoin accessibile a tutti.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; <span id="currentYear"></span> Cypherpunk 2140. Nessun diritto riservato. 🏴‍☠️</p>
+        <p class="text-sm">L'informazione vuole essere libera. Questo sito, in ogni sua parte, può essere liberamente copiato e ridistribuito senza alcuna autorizzazione.</p>
+    </div>
+</footer>
+
+<a href="#page-top-anchor" id="back-to-top" class="back-to-top-btn" aria-label="Torna all'inizio della pagina">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" />
+    </svg>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>

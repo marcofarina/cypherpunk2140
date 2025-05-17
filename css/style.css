@@ -1,0 +1,623 @@
+/* Importazione Font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;700&display=swap');
+
+/* Variabili Colore */
+:root {
+    --color-background-start: #230543;
+    --color-background-mid: #2c0257;
+    --color-background-end: #0f0f0f;
+    --color-text-primary: #E0E0E0;
+    --color-text-secondary: #b0b0b0;
+    --color-neon-yellow: #FFF900;
+    --color-neon-pink: #FF00FF;
+    --color-neon-cyan: #00FFFF;
+    --color-glass-bg: rgba(40, 20, 50, 0.25);
+    --color-glass-border: rgba(255, 255, 255, 0.15);
+    --header-height-desktop: 70px;
+    --header-height-mobile: 60px;
+    --side-menu-width: 340px;
+    --side-menu-offset: 15px;
+    --code-block-bg: #16101a;
+}
+
+/* Reset Base e Stili Globali */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(135deg, var(--color-background-start) 0%, var(--color-background-mid) 50%, var(--color-background-end) 100%);
+    background-attachment: fixed;
+    color: var(--color-text-primary);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    padding-top: var(--header-height-mobile);
+}
+@media (min-width: 1024px) {
+    body {
+        padding-top: var(--header-height-desktop);
+    }
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Tipografia */
+.font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+}
+
+/* Effetti Neon Standard (per testi grandi/titoli) */
+.neon-text-yellow {
+    color: var(--color-neon-yellow);
+    text-shadow: 0 0 2px var(--color-neon-yellow), 0 0 10px #ffdd00B7;
+}
+.neon-text-pink {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 1px var(--color-neon-pink), 0 0 5px var(--color-neon-pink), 0 0 10px #f727f7B7;
+}
+.neon-text-cyan {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 2px var(--color-neon-cyan), 0 0 4px var(--color-neon-cyan), 0 0 10px #00dfffB7;
+}
+
+/* NUOVE CLASSI: Effetti Neon Sottili (per testi piccoli) */
+.neon-text-subtle-yellow {
+    color: var(--color-neon-yellow);
+    text-shadow: 0 0 1px var(--color-neon-yellow), 0 0 5px rgba(255, 249, 0, 0.7);
+}
+.neon-text-subtle-pink {
+    color: var(--color-neon-pink);
+    text-shadow: 0 0 1px var(--color-neon-pink), 0 0 5px rgba(255, 0, 255, 0.7);
+}
+.neon-text-subtle-cyan {
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 1px var(--color-neon-cyan), 0 0 5px rgba(0, 255, 255, 0.7);
+}
+/* FINE NUOVE CLASSI */
+
+
+/* Bordi Neon */
+.neon-border {
+    border: 1px solid var(--color-neon-yellow);
+    box-shadow: 0 0 3px var(--color-neon-yellow), 0 0 5px var(--color-neon-yellow) inset;
+}
+.neon-border-pink {
+    border: 1px solid var(--color-neon-pink);
+    box-shadow: 0 0 3px var(--color-neon-pink), 0 0 5px var(--color-neon-pink) inset;
+}
+.neon-border-cyan {
+    border: 1px solid var(--color-neon-cyan);
+    box-shadow: 0 0 3px var(--color-neon-cyan), 0 0 5px var(--color-neon-cyan) inset;
+}
+
+/* Bottoni Neon */
+.btn-neon {
+    background-image: linear-gradient(to right, var(--color-neon-yellow) 0%, var(--color-neon-pink) 50%, var(--color-neon-cyan) 100%);
+    background-size: 200% auto;
+    color: #101010;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    transition: background-position 0.5s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px var(--color-neon-yellow), 0 0 4px var(--color-neon-pink), 0 2px 5px rgba(0,0,0,0.3);
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn-neon:hover {
+    background-position: right center;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 15px var(--color-neon-yellow), 0 0 10px var(--color-neon-pink), 0 4px 10px rgba(0,0,0,0.5);
+}
+.btn-neon-disabled {
+    background: #444;
+    color: #888;
+    cursor: not-allowed;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+/* Effetto Glassmorphism */
+.glassmorphism {
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    border: 1px solid var(--color-glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Scrollbar Personalizzata */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--color-neon-yellow), var(--color-neon-pink));
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(var(--color-neon-pink), var(--color-neon-cyan));
+}
+
+/* Header */
+#main-header {
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    height: var(--header-height-mobile);
+}
+#main-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    padding-left: 1rem; /* Padding per il contenuto dell'header stesso */
+    padding-right: 1rem;/* Padding per il contenuto dell'header stesso */
+}
+
+/* Navigazione Desktop nell'Header */
+.header-nav {
+    display: none;
+    align-items: center;
+    gap: 5px;
+}
+.header-nav a {
+    position: relative;
+    padding: 10px 12px;
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    white-space: nowrap;
+}
+.header-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-neon-yellow);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.header-nav a:hover,
+.header-nav a.active-header-link {
+    color: var(--color-neon-yellow);
+    text-shadow: 0 0 3px var(--color-neon-yellow), 0 0 5px var(--color-neon-yellow);
+}
+.header-nav a:hover::after,
+.header-nav a.active-header-link::after {
+    width: 70%;
+}
+
+/* Bottone Hamburger */
+#menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+    position: relative;
+    margin-left: auto;
+}
+#menu-toggle .hamburger-icon line {
+    stroke: var(--color-neon-yellow);
+    stroke-width: 2.5;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* RIMOZIONE ANIMAZIONE HAMBURGER -> X */
+/*
+#menu-toggle.active .hamburger-icon .line1 {
+    transform: rotate(45deg) translate(0px, 6px);
+}
+#menu-toggle.active .hamburger-icon .line2 {
+    opacity: 0;
+}
+#menu-toggle.active .hamburger-icon .line3 {
+    transform: rotate(-45deg) translate(0px, -6px);
+}
+*/
+/* FINE RIMOZIONE ANIMAZIONE */
+
+
+/* MODIFICHE PER MENU LATERALE FLOTTANTE */
+#side-menu {
+    position: fixed;
+    top: calc(var(--header-height-mobile) + var(--side-menu-offset));
+    width: var(--side-menu-width);
+    right: calc(-1 * (var(--side-menu-width) + var(--side-menu-offset)));
+    max-height: calc(100vh - (var(--header-height-mobile) + var(--side-menu-offset) * 2));
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--color-neon-pink);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    padding: 20px;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+    #side-menu {
+        top: calc(var(--header-height-desktop) + var(--side-menu-offset));
+        max-height: calc(100vh - (var(--header-height-desktop) + var(--side-menu-offset) * 2));
+    }
+}
+
+#side-menu.open {
+    right: var(--side-menu-offset);
+}
+
+#side-menu nav a {
+    display: block;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
+    font-family: 'Orbitron', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#side-menu nav a:hover,
+#side-menu nav a.active-link {
+    background-color: rgba(255, 0, 255, 0.2);
+    color: var(--color-neon-pink);
+    letter-spacing: 1px;
+}
+#side-menu nav a i { margin-right: 10px; color: var(--color-neon-cyan); }
+/* FINE MODIFICHE MENU LATERALE */
+
+/* Overlay per menu */
+#menu-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); z-index: 1000;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+#menu-overlay.active { opacity: 1; visibility: visible; }
+
+
+/* Stili per le sezioni */
+.section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+/* MODIFICA AL CONTAINER PER SPAZIATURA LATERALE */
+.container {
+    width: 100%; /* Occupa la larghezza disponibile del suo genitore */
+    max-width: 1200px; /* Limite massimo per schermi grandi */
+    margin-left: auto;  /* Centra quando max-width è attivo */
+    margin-right: auto; /* Centra quando max-width è attivo */
+    padding-left: 15px;  /* Spazio laterale fisso */
+    padding-right: 15px; /* Spazio laterale fisso */
+}
+/* FINE MODIFICA CONTAINER */
+
+/* Hero Section */
+#hero { min-height: calc(100vh - var(--header-height-mobile)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; }
+@media (min-width: 1024px) {
+    #hero { min-height: calc(100vh - var(--header-height-desktop)); }
+}
+#hero .logo-container img { max-width: 800px; margin-bottom: 1.5rem; }
+#hero h1 { font-size: clamp(2.2rem, 7vw, 4.5rem); margin-bottom: 0.5rem; }
+#hero h2 { font-size: clamp(1.1rem, 3.5vw, 2rem); margin-bottom: 1.5rem; color: var(--color-neon-cyan); }
+#hero .description-box { max-width: 700px; margin-left: auto; margin-right: auto; } /* Già centrato e con max-width */
+#hero .description-box p { font-size: 1.1rem; line-height: 1.65; }
+@media (min-width: 768px) {
+    #hero .description-box p { font-size: 1.2rem; line-height: 1.7; }
+}
+
+
+/* Sezione Metriche */
+#metriche .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+#metriche .container > .grid { /* La griglia delle metriche ora rispetterà il padding del .container */
+    max-width: 900px;
+    margin-left: auto; /* Mantiene la centratura della griglia se più stretta del container */
+    margin-right: auto;
+}
+#metriche .metric-item { padding: 1.25rem; text-align: center; }
+#metriche .metric-value { font-size: 2.5rem; font-weight: 900; }
+#metriche .metric-label { margin-top: 0.5rem; font-size: 0.9rem; color: var(--color-text-secondary); }
+
+/* Sezione Programma */
+#programma .program-list strong { display: inline-block; margin-bottom: 0.3rem; }
+#programma .program-list ul { list-style-type: none; padding-left: 0; }
+#programma .program-list > li { padding: 0.7rem 0; border-bottom: 1px dashed rgba(255,255,255,0.08); }
+#programma .program-list > li:last-child { border-bottom: none; }
+#programma .program-list ul li::before { content: "»"; color: var(--color-neon-pink); font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; margin-right: 0.5em; }
+#programma .buttons-container { margin-top: 2rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+/* Il .max-w-2xl.mx-auto sul contenitore del programma gestirà la sua larghezza */
+
+/* Sezione Obiettivi */
+#obiettivi-corso .list-disc { list-style-type: disc; }
+#obiettivi-corso ul li { margin-bottom: 0.5rem; }
+#obiettivi-corso h3 { font-size: 1.4rem; }
+/* Il .max-w-3xl.mx-auto sul contenitore degli obiettivi gestirà la sua larghezza */
+
+
+/* Sezione Concetti Chiave */
+#concetti-chiave .concept-item h3 { font-size: 1.6rem; }
+#concetti-chiave .concept-item p { margin-bottom: 1.5rem; }
+#concetti-chiave .container > .grid { /* La griglia dei concetti ora rispetterà il padding del .container */
+    max-width: 1000px;
+    margin-left: auto; /* Mantiene la centratura della griglia se più stretta del container */
+    margin-right: auto;
+}
+
+/* Stili specifici per i box di testo nelle sezioni principali di main */
+main section > .container > .glassmorphism {
+    max-width: 850px; /* Larghezza massima per i box di contenuto principale */
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Assicura che il testo .prose-custom dentro questi box ristretti si adatti */
+main section > .container > .glassmorphism .prose-custom {
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Sezione Calendario e Certificazione (generale, se hanno una struttura diversa) */
+/* Se #calendario e #certificazione usano .content-box invece di .glassmorphism diretto sotto .container, */
+/* le regole sopra non si applicheranno e queste sotto prenderanno il sopravvento. */
+/* Altrimenti, se usano la stessa struttura, queste potrebbero non essere necessarie o sovrascritte. */
+#calendario .content-box,
+#certificazione .content-box {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+}
+
+/* Footer */
+footer {
+    padding: 2rem 0;
+    background-color: rgba(10,10,10,0.5);
+    border-top: 1px solid var(--color-neon-pink);
+    text-align: center;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+footer p { margin: 0.3rem 0; }
+
+/* Pulsante Torna Su */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-neon-pink);
+    color: var(--color-background-end);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 0 10px var(--color-neon-pink), 0 0 15px var(--color-neon-pink), 0 2px 5px rgba(0,0,0,0.3);
+}
+.back-to-top-btn svg {
+    width: 24px;
+    height: 24px;
+}
+.back-to-top-btn:hover {
+    background-color: var(--color-neon-yellow);
+    color: var(--color-background-start);
+    box-shadow: 0 0 12px var(--color-neon-yellow), 0 0 20px var(--color-neon-yellow), 0 4px 8px rgba(0,0,0,0.4);
+    transform: translateY(15px) scale(1.05);
+}
+.back-to-top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mb-12 { margin-bottom: 3rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-2xl { max-width: 42rem; }
+.max-w-3xl { max-width: 48rem; }
+.leading-relaxed { line-height: 1.625; }
+
+/* Stili per la prosa (contenuto testuale lungo) */
+.prose-custom p { margin-bottom: 1.5rem; }
+
+/* Stili per i titoli all'interno della prosa */
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3 {
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 2.2em;   /* Aumentato leggermente per più spazio */
+    margin-bottom: 1.2em; /* Aumentato leggermente per più spazio */
+    line-height: 1.3; /* Migliora l'aspetto dei titoli su più righe */
+}
+
+.prose-custom h1 {
+    font-size: 2rem; /* Leggermente ridotto per bilanciare con h2/h3 */
+    color: var(--color-neon-yellow);
+}
+
+.prose-custom h2 {
+    font-size: 1.5rem; /* Leggermente ridotto */
+    color: var(--color-neon-pink);
+}
+
+.prose-custom h3 { /* NUOVO STILE PER H3 */
+    font-size: 1.15rem;
+    color: var(--color-neon-cyan);
+    text-shadow: 0 0 2px var(--color-neon-cyan), 0 0 4px rgba(0, 255, 255, 0.6); /* Glow ciano sottile */
+}
+
+/* MODIFICA STILI ELENCHI IN .prose-custom */
+.prose-custom ul,
+.prose-custom ol {
+    list-style-type: none; /* Rimuove i marcatori di default */
+    padding-left: 0;      /* Rimuove il padding di default che crea il rientro per i marcatori standard */
+    margin-bottom: 1.5rem; /* Spazio sotto l'elenco */
+}
+.prose-custom ul li,
+.prose-custom ol li {
+    padding-left: 2em;   /* Crea spazio a sinistra per il nostro marcatore custom e il rientro del testo */
+    position: relative;   /* Necessario per posizionare lo pseudo-elemento ::before */
+    margin-bottom: 0.75rem; /* Spazio tra gli elementi della lista */
+}
+.prose-custom ul li::before,
+.prose-custom ol li::before {
+    content: "»"; /* Il nostro marcatore personalizzato */
+    color: var(--color-neon-pink); /* Colore del marcatore (rosa per ul) */
+    font-weight: bold;
+    position: absolute; /* Posiziona il marcatore rispetto all'li */
+    left: 0.5em;        /* Spazio dal bordo sinistro dell'li (aggiustabile) */
+    top: 0;             /* Allinea con la parte superiore del testo dell'li (può richiedere aggiustamenti con line-height) */
+}
+/* Se vuoi differenziare i marcatori per ol (elenchi numerati) */
+.prose-custom ol li::before {
+    color: var(--color-neon-cyan); /* Colore diverso per ol (ciano), se vuoi, mantenendo » */
+    /* Per numerazione reale, servirebbero i counter CSS, es: content: counter(list-item) ". "; */
+}
+
+/* NUOVI STILI PER BLOCCHI DI CODICE */
+.prose-custom pre {
+    background-color: var(--code-block-bg); /* Usa una variabile per lo sfondo */
+    border: 1px solid var(--color-neon-cyan);
+    box-shadow: 0 0 4px var(--color-neon-cyan), 0 0 7px var(--color-neon-cyan) inset;
+    border-radius: 8px;
+    padding: 1.25em 1.5em;
+    overflow-x: auto;
+    color: #e0e0e0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+.prose-custom pre code {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+/* Esempio di prompt per comandi bash e testo */
+.prose-custom pre code.language-bash::before {
+    content: "$ ";
+    color: var(--color-neon-pink);
+    font-weight: bold;
+}
+.prose-custom pre code.language-text::before {
+    content: "> ";
+    color: var(--color-neon-yellow);
+}
+/* Reset scrollbar per blocchi di codice */
+.prose-custom pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: transparent; /* Resetta lo sfondo della scrollbar */
+}
+.prose-custom pre::-webkit-scrollbar-track {
+    background: rgba(42, 42, 42, 0.5); /* Sfondo scuro semi-trasparente per la track */
+    border-radius: 4px;
+    border: 1px solid rgba(85, 85, 85, 0.5); /* Bordo leggero per la track */
+}
+.prose-custom pre::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+    border: 1px solid #444; /* Bordo per il thumb */
+}
+.prose-custom pre::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+/* ...altri stili prose-custom... */
+
+
+/* Responsive adjustments for Header Navigation */
+@media (min-width: 1024px) {
+    #main-header {
+        height: var(--header-height-desktop);
+    }
+    #main-header .container {
+        justify-content: space-between;
+    }
+    .header-nav {
+        display: flex;
+    }
+    #menu-toggle {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1023.98px) {
+    .header-nav {
+        display: none;
+    }
+    #main-header .container {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: var(--header-height-mobile);
+    }
+    #hero { min-height: calc(100vh - var(--header-height-mobile)); }
+    #hero .logo-container img { max-width: 150px; }
+    #hero h1 { font-size: 1.8rem; }
+    #hero h2 { font-size: 0.9rem; }
+    #metriche .metric-value { font-size: 2rem; }
+    .btn-neon, .btn-neon-disabled { padding: 10px 16px; font-size: 0.85rem; }
+    .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
+    #obiettivi-corso h3, #concetti-chiave .concept-item h3 { font-size: 1.3rem; }
+    .back-to-top-btn { width: 45px; height: 45px; bottom: 15px; right: 15px; }
+    .back-to-top-btn svg { width: 20px; height: 20px; }
+
+    /* Adattamenti menu laterale per mobile se necessario */
+    #side-menu {
+        width: calc(100% - (var(--side-menu-offset) * 2));
+        right: calc(-100% + var(--side-menu-offset));
+    }
+    #side-menu.open {
+        right: var(--side-menu-offset);
+    }
+    .prose-custom {
+        max-width: 100%;
+    }
+    .prose-custom h1 { font-size: 1.7rem; } /* Adatta h1 per mobile */
+    .prose-custom h2 { font-size: 1.3rem; } /* Adatta h2 per mobile */
+    .prose-custom h3 { font-size: 1.1rem;} /* Adatta h3 per mobile */
+    .prose-custom pre {
+        padding: 1em 1.25em;
+    }
+    .prose-custom ul li,
+    .prose-custom ol li {
+        padding-left: 1.5em; /* Riduci leggermente il padding per mobile se necessario */
+    }
+    .prose-custom ul li::before,
+    .prose-custom ol li::before {
+        left: 0.25em; /* Aggiusta la posizione del marcatore per mobile */
+    }
+}

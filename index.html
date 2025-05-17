@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cypherpunk 2140 - Sito del corso</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header id="main-header">
+    <div class="container">
+        <nav class="header-nav">
+            <a href="#hero">Panoramica</a>
+            <a href="#programma">Programma</a>
+            <a href="#obiettivi-corso">Obiettivi</a>
+            <a href="#concetti-chiave">Concetti</a>
+            <a href="#certificazione">Certificazione</a>
+            <a href="#calendario">Calendario</a>
+        </nav>
+
+        <button id="menu-toggle" aria-label="Apri menu" aria-expanded="false" aria-controls="side-menu">
+            <svg class="hamburger-icon w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line class="line1" x1="3" y1="6" x2="21" y2="6"/>
+                <line class="line2" x1="3" y1="12" x2="21" y2="12"/>
+                <line class="line3" x1="3" y1="18" x2="21" y2="18"/>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<aside id="side-menu">
+    <nav>
+        <a href="index.html#hero">Home corso</a>
+        <a href="programma.html">Programma dettagliato</a>
+        <a href="certificazione.html">Verifica la certificazione</a>
+        <a href="https://www.jcmaxwell.edu.it" target="_blank" rel="noopener noreferrer"><- Torna al sito del Maxwell</a>
+    </nav>
+</aside>
+<div id="menu-overlay"></div>
+
+<main>
+
+    <section id="hero" class="section-padding">
+        <div class="logo-container">
+            <img src="img/logo.png" alt="Logo Cypherpunk 2140"
+                 onerror="this.onerror=null; this.src='https://placehold.co/200x100/1a0a1f/FFF900?text=CP2140_LOGO'; this.alt='Logo Cypherpunk 2140 Placeholder';" >
+        </div>
+        <div class="container text-center">
+            <h2 class="font-orbitron neon-text-cyan mt-2 mb-8">Civil liberty through complex mathematics</h2>
+            <div class="description-box glassmorphism p-6 md:p-8 neon-border">
+                <p class="text-gray-200" style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 10px;">
+                    Bitcoin è l'unica moneta digitale sicura, trasparente, incensurabile e realmente decentralizzata, che sta ridefinendo il concetto stesso di denaro ed economia, sfidando il sistema finanziario tradizionale.
+                </p>
+                <p class="text-gray-200" style="font-size: 1.15rem; line-height: 1.7; margin-bottom: 0;">
+                    Comprendere oggi questa rivoluzione è fondamentale per partecipare consapevolmente all'emancipazione economica, sociale e politica avviata nel 2009 da Satoshi Nakamoto.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="metriche" class="section-padding bg-black bg-opacity-20">
+        <div class="container">
+            <h2 class="text-3xl sm:text-4xl font-orbitron text-center mb-12 neon-text-pink">I numeri del corso</h2>
+            <div class="grid">
+                <div class="metric-item glassmorphism neon-border-pink">
+                    <div class="metric-value font-orbitron neon-text-yellow">16</div>
+                    <p class="metric-label">Ore di lezione</p>
+                </div>
+                <div class="metric-item glassmorphism neon-border-pink">
+                    <div class="metric-value font-orbitron neon-text-yellow">44</div>
+                    <p class="metric-label">Studenti totali</p>
+                </div>
+                <div class="metric-item glassmorphism neon-border-pink">
+                    <div class="metric-value font-orbitron neon-text-yellow">19</div>
+                    <p class="metric-label">Hanno sostenuto l'esame</p>
+                </div>
+                <div class="metric-item glassmorphism neon-border-pink">
+                    <div class="metric-value font-orbitron neon-text-yellow">8</div>
+                    <p class="metric-label">Studenti certificati</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="programma" class="section-padding">
+        <div class="container">
+            <h2 class="text-3xl sm:text-4xl font-orbitron text-center mb-12 neon-text-cyan">Programma generale</h2>
+            <div class="max-w-2xl mx-auto glassmorphism p-6 md:p-8 neon-border-cyan">
+                <ul class="program-list space-y-4 text-lg">
+                    <li><strong class="neon-text-subtle-yellow">Macroeconomia e storia della moneta</strong> Dal baratto alle valute <em>fiat</em>, passando per il Gold Standard, gli accordi di Bretton-Woods e tutti i concetti economici necessari a capire le radici che portano alla nascita di Bitcoin.</li>
+                    <li><strong class="neon-text-subtle-yellow">Il movimento cypherpunk</strong> Internet, privacy, crittografia. Le origini tecniche di Bitcoin, gli algoritmi crittografici, le firme digitali, l'hashing fino ai cenni sulle curve ellittiche.</li>
+                    <li><strong class="neon-text-subtle-yellow">La nascita di Bitcoin</strong> Costruire una moneta decentralizzata: come raggiungere il consenso in una rete distribuita, cos'è Bitcoin e quali sono le idee di Satoshi Nakamoto</li>
+                    <li><strong class="neon-text-subtle-yellow">Nella tana del Bianconiglio</strong> Ci addentriamo nei meandri della rete Bitcoin, esplorando i nodi, le transazioni e i blocchi. Scopriremo come funziona la blockchain, chi sono i miner e cosa fanno.
+                        <ul class="list-disc list-inside ml-6 mt-2 space-y-1 text-gray-300">
+                            <li>Proof of Work e mining</li>
+                            <li>Halving e difficulty adjustment</li>
+                            <li>Timechain</li>
+                            <li>I nodi e Bitcoin Core</li>
+                        </ul>
+                    </li>
+                    <li><strong class="neon-text-subtle-yellow">Wallet e principi di self-custody</strong> <em>Not your keys, not your coin</em>: scopriamo cos'è un wallet, come si installa, cosa vuol dire custodire le proprie chiavi private e come fare un backup efficace della propria seed phrase.</li>
+                </ul>
+                <div class="buttons-container mt-10">
+                    <a href="programma.html" class="btn-neon">Programma dettagliato</a>
+                    <a href="static/locandina_cypherpunk2140.pdf" download class="btn-neon">Scarica la locandina</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="obiettivi-corso" class="section-padding bg-black bg-opacity-20">
+        <div class="container">
+            <h2 class="text-3xl sm:text-4xl font-orbitron text-center mb-12 neon-text-pink">Obiettivi del corso</h2>
+            <div class="max-w-3xl mx-auto grid md:grid-cols-2 gap-8">
+                <div class="glassmorphism p-6 neon-border-pink">
+                    <h3 class="font-orbitron text-xl mb-4 neon-text-yellow">Cosa imparerai</h3>
+                    <ul class="space-y-3 text-gray-200 list-disc pl-5">
+                        <li>Capire il ruolo della moneta nella società</li>
+                        <li>Capire cos’è Bitcoin e perché è importante</li>
+                        <li>Comprendere la tecnologia sottostante</li>
+                        <li>Comprendere i meccanismi crittografici</li>
+                        <li>Imparare i principi della self custody</li>
+                        <li>Creare un nodo della rete bitcoin</li>
+                    </ul>
+                </div>
+                <div class="glassmorphism p-6 neon-border-pink">
+                    <h3 class="font-orbitron text-xl mb-4 neon-text-yellow">Cosa NON è questo corso</h3>
+                    <ul class="space-y-3 text-gray-200 list-disc pl-5">
+                        <li>Non è un corso di finanza e marketing</li>
+                        <li>Non è un corso di trading</li>
+                        <li>Non è un corso sulle shitcoin 💩</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="concetti-chiave" class="section-padding">
+        <div class="container">
+            <h2 class="text-3xl sm:text-4xl font-orbitron text-center mb-16 neon-text-cyan">Concetti chiave</h2>
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-12">
+
+                <div class="concept-item glassmorphism p-6 neon-border-cyan">
+                    <h3 class="font-orbitron text-2xl mb-3 neon-text-yellow">La Moneta e il denaro</h3>
+                    <p class="text-gray-300 leading-relaxed" style="margin-bottom: 1.5rem;">
+                        Cos’è il denaro? Come viene creato e chi lo controlla? Perché scambiamo il tempo per denaro? Perché alcune persone ne hanno di più di altre? Perché il denaro è diverso negli altri paesi? Perché non possiamo semplicemente crearne di più quando ne abbiamo bisogno?
+                    </p>
+                </div>
+
+                <div class="concept-item glassmorphism p-6 neon-border-cyan">
+                    <h3 class="font-orbitron text-2xl mb-3 neon-text-yellow">Cypherpunks e privacy</h3>
+                    <p class="text-gray-300 leading-relaxed" style="margin-bottom: 1.5rem;">
+                        “I cypherpunk scrivono codice“. Chi sono gli informatici che tramite le ineluttabili leggi della matematica hanno inventato la crittografia moderna e tracciato la strada verso la privacy e l’anonimato in rete?
+                    </p>
+                </div>
+
+                <div class="concept-item glassmorphism p-6 neon-border-cyan">
+                    <h3 class="font-orbitron text-2xl mb-3 neon-text-yellow">Bitcoin e blockchain</h3>
+                    <p class="text-gray-300 leading-relaxed" style="margin-bottom: 1.5rem;">
+                        Globale. Sicuro. Trasparente. Decentralizzato. Incensurabile. Libero. Deflazionario. Immutabile. Come e perché Bitcoin funziona?
+                    </p>
+                </div>
+
+                <div class="concept-item glassmorphism p-6 neon-border-cyan">
+                    <h3 class="font-orbitron text-2xl mb-3 neon-text-yellow">Self custody e wallet</h3>
+                    <p class="text-gray-300 leading-relaxed" style="margin-bottom: 1.5rem;">
+                        “<em>Not your keys, not your coin</em>“. Dietro questo mantra si nasconde il profondo concetto di indipendenza economia e della rivoluzione iniziata da Satoshi Nakamoto nel 2009.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-3xl mx-auto mt-12">
+                <blockquote class="glassmorphism p-6 neon-border-pink text-center italic text-gray-300 text-lg leading-loose">
+                    <p>«The root problem with conventional currency is all the trust that’s required to make it work. The central bank must be trusted not to debase the currency, but the history of fiat currencies is full of breaches of that trust.»</p>
+                    <footer class="mt-4 text-xl italic font-orbitron neon-text-yellow">- Satoshi Nakamoto</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificazione" class="section-padding">
+        <div class="container text-center">
+            <div class="content-box glassmorphism p-6 md:p-8 neon-border">
+                <h2 class="text-3xl sm:text-4xl font-orbitron mb-8 neon-text-yellow">Proof of Knowledge</h2>
+                <p class="text-lg leading-relaxed mb-4 text-gray-200">
+                    Nel mondo di Bitcoin, la "Proof of Work" garantisce la sicurezza e l'integrità della rete. Nel corso "Cypherpunk 2140", la tua "Proof of Knowledge" attesta la tua comprensione dei principi fondamentali che rendono Bitcoin una rivoluzione.
+                </p>
+                <p class="text-lg leading-relaxed mb-6 text-gray-200">
+                    Questa certificazione non è solo un attestato: è la dimostrazione che hai acquisito le competenze per navigare consapevolmente nell'ecosistema Bitcoin, comprendere le sue implicazioni tecnologiche, economiche e sociali, e padroneggiare i concetti di self-custody e sovranità finanziaria.
+                </p>
+                <div class="mt-8">
+                    <a href="certificazione.html" class="btn-neon">Scopri verificare la tua certificazione</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calendario" class="section-padding bg-black bg-opacity-20">
+        <div class="container text-center">
+            <div class="content-box glassmorphism p-6 md:p-8 neon-border-pink">
+                <h2 class="text-3xl sm:text-4xl font-orbitron mb-8 neon-text-pink">Iscrizioni e calendario</h2>
+                <p class="text-lg mb-8 max-w-xl mx-auto text-gray-200">
+                    Le iscrizioni per l'edizione corrente del corso sono terminate. Segui i nostri aggiornamenti per le prossime date!
+                </p>
+                <button class="btn-neon-disabled">Iscriviti al corso</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; <span id="currentYear"></span> Cypherpunk 2140. Nessun diritto riservato. 🏴‍☠️</p>
+        <p class="text-sm">L'informazione vuole essere libera. Questo sito, in ogni sua parte, può essere liberamente copiato e ridistribuito senza alcuna autorizzazione.</p>
+    </div>
+</footer>
+
+<a href="#hero" id="back-to-top" class="back-to-top-btn" aria-label="Torna all'inizio della pagina">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+        <path fill-rule="evenodd" d="M11.47 2.47a.75.75 0 011.06 0l7.5 7.5a.75.75 0 11-1.06 1.06l-6.22-6.22V21a.75.75 0 01-1.5 0V4.81l-6.22 6.22a.75.75 0 01-1.06-1.06l7.5-7.5z" clip-rule="evenodd" />
+    </svg>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>
