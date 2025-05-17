@@ -46,7 +46,7 @@
         <div class="container">
             <div class="glassmorphism p-6 md:p-8 neon-border-cyan">
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-orbitron text-center mb-10 neon-text-yellow">
-                    Verifica il tuo diploma "Proof of Knowledge"
+                    Verifica il tuo certificato<br>"Proof of Knowledge"
                 </h1>
                 <div class="prose-custom text-gray-300 text-lg leading-relaxed">
                     <p>
@@ -65,7 +65,7 @@
                 <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Meccanismo di firma e verifica dei certificati</h2>
                 <div class="prose-custom text-gray-300 text-lg leading-relaxed">
                     <p>
-                        Il Corso Cypherpunk 2140 prende ispirazione dalla certificazione ₿-CERT di <a href="https://planb.network/" target="_blank" rel="noopener noreferrer"  class="neon-text-subtle-cyan hover:neon-text-cyan">Plan₿ Network</a> sia nella modalità d'esame, sia nel meccanismo di firma e verifica dei cartificati. Anche nel corso Cypherpunk 2140 firmiamo crittograficamente gli attestati e li marchiamo temporalmente utilizzando la Timechain (cioè la blockchain di Bitcoin), attraverso un meccanismo di prova che si basa su due operazioni crittografiche:
+                        Il Corso Cypherpunk 2140 prende ispirazione dalla certificazione ₿-CERT di <a href="https://planb.network/" target="_blank" rel="noopener noreferrer"  class="neon-text-subtle-cyan hover:neon-text-cyan">Plan₿ Network</a> sia nella modalità d'esame, sia nel meccanismo di firma e verifica dei cartificati. Anche nel corso Cypherpunk 2140 firmiamo crittograficamente i certificati e li marchiamo temporalmente utilizzando la Timechain (cioè la blockchain di Bitcoin), attraverso un meccanismo di prova che si basa su due operazioni crittografiche:
                     </p>
                     <ul>
                         <li>Una firma GPG su un file di testo che sintetizza i tuoi risultati e i dettagli del certificato.</li>
@@ -75,7 +75,7 @@
                         La prima operazione ti permette di confermare l'emittente del certificato (il prof. Marco Farina che ha tenuto il corso Cypherpunk 2140), mentre la seconda ti consente di verificare la data della sua emissione. Questo semplice meccanismo di prova ci permette di emettere certificati con prove crittografiche che chiunque può verificare in modo indipendente.
                     </p>
                     <p>
-                        Grazie a questo meccanismo, qualsiasi tentativo di alterare anche il più piccolo dettaglio del tuo certificato risulterà in un hash SHA-256 completamente diverso del file firmato, rivelando istantaneamente qualsiasi manomissione, poiché sia la firma che la marcatura temporale non saranno più valide. Inoltre, se qualcuno tentasse di falsificare maliziosamente attestati per conto del Corso Cypherpunk 2140, una semplice verifica della firma smaschererebbe la frode.
+                        Grazie a questo meccanismo, qualsiasi tentativo di alterare anche il più piccolo dettaglio del tuo certificato risulterà in un hash SHA-256 completamente diverso del file firmato, rivelando istantaneamente qualsiasi manomissione, poiché sia la firma che la marcatura temporale non saranno più valide. Inoltre, se qualcuno tentasse di falsificare maliziosamente certificati per conto del Corso Cypherpunk 2140, una semplice verifica della firma smaschererebbe la frode.
                     </p>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                 <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Come funziona la firma GPG?</h2>
                 <div class="prose-custom text-gray-300 text-lg leading-relaxed">
                     <p>
-                        La firma GPG è generata utilizzando un software open-source chiamato GNU Privacy Guard (GnuPG o GPG). Questo software permette agli utenti di creare facilmente chiavi private, firmare e verificare firme, e cifrare e decifrare file. Ai fini di questo tutorial, è importante notare che il Corso Cypherpunk 2140 utilizza GPG per creare le proprie chiavi privata/pubblica e per firmare tutti gli attestati "Proof of Knowledge".
+                        La firma GPG è generata utilizzando un software open-source chiamato GNU Privacy Guard (GnuPG o GPG). Questo software permette agli utenti di creare facilmente chiavi private, firmare e verificare firme, e cifrare e decifrare file. Ai fini di questo tutorial, è importante notare che il Corso Cypherpunk 2140 utilizza GPG per creare le proprie chiavi privata/pubblica e per firmare tutti i certificati "Proof of Knowledge".
                     </p>
                     <p>
                         Se qualcuno vuole verificare l'autenticità di un file firmato, può usare GPG per importare la chiave pubblica dell'emittente e verificarla.
