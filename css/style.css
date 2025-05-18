@@ -27,10 +27,9 @@ body {
     background-attachment: fixed;
     color: var(--color-text-primary);
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    padding-top: var(--header-height-mobile);
+    padding: var(--header-height-mobile) 0 0;
 }
 @media (min-width: 1024px) {
     body {
@@ -62,7 +61,7 @@ body {
     text-shadow: 0 0 2px var(--color-neon-cyan), 0 0 4px var(--color-neon-cyan), 0 0 10px #00dfffB7;
 }
 
-/* NUOVE CLASSI: Effetti Neon Sottili (per testi piccoli) */
+/* Effetti Neon Sottili (per testi piccoli) */
 .neon-text-subtle-yellow {
     color: var(--color-neon-yellow);
     text-shadow: 0 0 1px var(--color-neon-yellow), 0 0 5px rgba(255, 249, 0, 0.7);
@@ -75,8 +74,6 @@ body {
     color: var(--color-neon-cyan);
     text-shadow: 0 0 1px var(--color-neon-cyan), 0 0 5px rgba(0, 255, 255, 0.7);
 }
-/* FINE NUOVE CLASSI */
-
 
 /* Bordi Neon */
 .neon-border {
@@ -160,8 +157,8 @@ body {
     align-items: center;
     justify-content: flex-end;
     height: 100%;
-    padding-left: 1rem; /* Padding per il contenuto dell'header stesso */
-    padding-right: 1rem;/* Padding per il contenuto dell'header stesso */
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 /* Navigazione Desktop nell'Header */
@@ -218,22 +215,7 @@ body {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* RIMOZIONE ANIMAZIONE HAMBURGER -> X */
-/*
-#menu-toggle.active .hamburger-icon .line1 {
-    transform: rotate(45deg) translate(0px, 6px);
-}
-#menu-toggle.active .hamburger-icon .line2 {
-    opacity: 0;
-}
-#menu-toggle.active .hamburger-icon .line3 {
-    transform: rotate(-45deg) translate(0px, -6px);
-}
-*/
-/* FINE RIMOZIONE ANIMAZIONE */
-
-
-/* MODIFICHE PER MENU LATERALE FLOTTANTE */
+/* MENU LATERALE FLOTTANTE */
 #side-menu {
     position: fixed;
     top: calc(var(--header-height-mobile) + var(--side-menu-offset));
@@ -284,7 +266,7 @@ body {
     letter-spacing: 1px;
 }
 #side-menu nav a i { margin-right: 10px; color: var(--color-neon-cyan); }
-/* FINE MODIFICHE MENU LATERALE */
+/* FINE MENU LATERALE */
 
 /* Overlay per menu */
 #menu-overlay {
@@ -301,7 +283,7 @@ body {
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
-/* MODIFICA AL CONTAINER PER SPAZIATURA LATERALE */
+
 .container {
     width: 100%; /* Occupa la larghezza disponibile del suo genitore */
     max-width: 1200px; /* Limite massimo per schermi grandi */
@@ -310,7 +292,6 @@ body {
     padding-left: 15px;  /* Spazio laterale fisso */
     padding-right: 15px; /* Spazio laterale fisso */
 }
-/* FINE MODIFICA CONTAINER */
 
 /* Hero Section */
 #hero { min-height: calc(100vh - var(--header-height-mobile)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; }
@@ -326,10 +307,9 @@ body {
     #hero .description-box p { font-size: 1.2rem; line-height: 1.7; }
 }
 
-
 /* Sezione Metriche */
 #metriche .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-#metriche .container > .grid { /* La griglia delle metriche ora rispetterà il padding del .container */
+#metriche .container > .grid {
     max-width: 900px;
     margin-left: auto; /* Mantiene la centratura della griglia se più stretta del container */
     margin-right: auto;
@@ -352,7 +332,6 @@ body {
 #obiettivi-corso ul li { margin-bottom: 0.5rem; }
 #obiettivi-corso h3 { font-size: 1.4rem; }
 /* Il .max-w-3xl.mx-auto sul contenitore degli obiettivi gestirà la sua larghezza */
-
 
 /* Sezione Concetti Chiave */
 #concetti-chiave .concept-item h3 { font-size: 1.6rem; }
@@ -475,7 +454,6 @@ footer p { margin: 0.3rem 0; }
     text-shadow: 0 0 2px var(--color-neon-cyan), 0 0 4px rgba(0, 255, 255, 0.6); /* Glow ciano sottile */
 }
 
-/* MODIFICA STILI ELENCHI IN .prose-custom */
 .prose-custom ul,
 .prose-custom ol {
     list-style-type: none; /* Rimuove i marcatori di default */
@@ -497,13 +475,12 @@ footer p { margin: 0.3rem 0; }
     left: 0.5em;        /* Spazio dal bordo sinistro dell'li (aggiustabile) */
     top: 0;             /* Allinea con la parte superiore del testo dell'li (può richiedere aggiustamenti con line-height) */
 }
-/* Se vuoi differenziare i marcatori per ol (elenchi numerati) */
+
 .prose-custom ol li::before {
-    color: var(--color-neon-cyan); /* Colore diverso per ol (ciano), se vuoi, mantenendo » */
-    /* Per numerazione reale, servirebbero i counter CSS, es: content: counter(list-item) ". "; */
+    color: var(--color-neon-cyan);
 }
 
-/* NUOVI STILI PER BLOCCHI DI CODICE */
+/* STILI PER BLOCCHI DI CODICE */
 .prose-custom pre {
     background-color: var(--code-block-bg); /* Usa una variabile per lo sfondo */
     border: 1px solid var(--color-neon-cyan);
@@ -585,7 +562,7 @@ footer p { margin: 0.3rem 0; }
         padding-top: var(--header-height-mobile);
     }
     #hero { min-height: calc(100vh - var(--header-height-mobile)); }
-    #hero .logo-container img { max-width: 150px; }
+    #hero .logo-container img { max-width: 350px; }
     #hero h1 { font-size: 1.8rem; }
     #hero h2 { font-size: 0.9rem; }
     #metriche .metric-value { font-size: 2rem; }

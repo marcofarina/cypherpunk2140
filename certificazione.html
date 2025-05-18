@@ -88,7 +88,7 @@
                 <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Come funziona la firma GPG?</h2>
                 <div class="prose-custom text-gray-300 text-lg leading-relaxed">
                     <p>
-                        La firma GPG è generata utilizzando un software open-source chiamato GNU Privacy Guard (GnuPG o GPG). Questo software permette agli utenti di creare facilmente chiavi private, firmare e verificare firme, e cifrare e decifrare file. Ai fini di questo tutorial, è importante notare che il Corso Cypherpunk 2140 utilizza GPG per creare le proprie chiavi privata/pubblica e per firmare tutti i certificati "Proof of Knowledge".
+                        La firma GPG è generata utilizzando un software open-source chiamato GNU Privacy Guard (GnuPG o GPG). Questo software permette agli utenti di creare facilmente chiavi private, firmare e verificare firme, e cifrare e decifrare file. Ai fini di questo tutorial, è importante notare che il corso Cypherpunk 2140 utilizza GPG per creare le proprie chiavi privata/pubblica e per firmare tutti i certificati "Proof of Knowledge" ottenuti dagli studenti.
                     </p>
                     <p>
                         Se qualcuno vuole verificare l'autenticità di un file firmato, può usare GPG per importare la chiave pubblica dell'emittente e verificarla.
@@ -107,13 +107,13 @@
                 <h2 class="text-xl sm:text-2xl font-orbitron mb-4 neon-text-subtle-pink">Come funziona il timestamping?</h2>
                 <div class="prose-custom text-gray-300 text-lg leading-relaxed">
                     <p>
-                        Chiunque può usare OpenTimestamps per marcare temporalmente un file e ottenere una prova verificabile della sua esistenza. In altre parole, non fornisce la prova di quando il file è stato creato, ma piuttosto la prova che il file esisteva non più tardi di un momento specifico nel tempo.
+                        Chiunque può usare OpenTimestamps per marcare temporalmente un file e ottenere una prova verificabile della sua esistenza. In altre parole, non fornisce la prova di quando il file è stato creato, ma piuttosto la prova che il file esisteva prima di un momento specifico nel tempo.
                     </p>
                     <p>
-                        OpenTimestamps fornisce questo servizio gratuitamente utilizzando un metodo altamente efficiente per memorizzare la prova nella blockchain di Bitcoin. Impiega l'algoritmo di hash SHA-256 per creare un identificatore univoco per il tuo file e costruisce un albero di Merkle utilizzando gli hash dei file inviati da altri utenti. Solo l'hash della struttura dell'albero di Merkle è inserito in una transazione <code>OP_RETURN</code>, garantendo un modo sicuro e compatto per verificare l'esistenza del file.
+                        OpenTimestamps fornisce questo servizio gratuitamente utilizzando un metodo altamente efficiente per memorizzare la prova di esistenza del file all'interno di un blocco della blockchain di Bitcoin. Impiega l'algoritmo di hash SHA-256 per creare un identificatore univoco del tuo file e costruisce un albero di Merkle utilizzando gli hash dei file inviati da altri utenti. Solo l'hash della struttura dell'albero di Merkle viene successivamente inserito in una transazione <code>OP_RETURN</code>, garantendo un modo sicuro e compatto per verificare l'esistenza del file.
                     </p>
                     <p>
-                        Una volta che questa transazione entra in un blocco, chiunque con il file iniziale e il file <code>.ots</code> associato può verificare l'autenticità della marcatura temporale. Nella seconda parte del tutorial, vedremo come verificare il tuo certificato attraverso un terminale e attraverso un'interfaccia grafica sul sito di OpenTimestamps.
+                        Una volta che questa transazione entra in un blocco, chiunque con il file iniziale e il file <code>.ots</code> associato può verificare matematicamente l'autenticità della marcatura temporale del file. Nella seconda parte del tutorial, vedremo come verificare il tuo certificato attraverso un terminale e attraverso l'interfaccia grafica sul sito di OpenTimestamps.
                     </p>
                 </div>
             </div>
@@ -159,9 +159,9 @@ gpg:               imported: 1</code></pre>
                         <strong>NOTA:</strong> se vedi che 1 chiave è stata elaborata e 0 chiavi sono state importate, probabilmente significa che hai già importato la stessa chiave in precedenza, il che va benissimo.
                     </p>
                     <p>
-                        Verifica la firma del certificato usando il seguente comando (sostituisci <code>nome_file_certificato.txt</code> con il nome effettivo del tuo file <code>.txt</code>):
+                        Verifica la firma del certificato usando il seguente comando (sostituisci <code>nome_file_certificato.txt.asc</code> con il nome effettivo del tuo file <code>.asc</code>):
                     </p>
-                    <pre><code class="language-bash">gpg --verify nome_file_certificato.txt</code></pre>
+                    <pre><code class="language-bash">gpg --verify nome_file_certificato.txt.asc</code></pre>
                     <p>
                         Questo comando dovrebbe mostrarti i dettagli sulla firma, inclusi:
                     </p>
@@ -186,7 +186,7 @@ gpg: Firma valida da "Marco Farina (Chiave per firma certificati Cypherpunk2140)
                         <li>Visita il sito di OpenTimestamps: <a href="https://opentimestamps.org/" target="_blank" rel="noopener noreferrer" class="neon-text-subtle-cyan hover:neon-text-cyan">https://opentimestamps.org/</a></li>
                         <li>Clicca sul pulsante "Stamp & Verify".</li>
                         <li>Trascina il file OTS (es. <code>nome_file_certificato.txt.ots</code>) nell'area designata.</li>
-                        <li>Trascina il file marcato temporalmente (es. <code>nome_file_certificato.txt</code>) nell'area designata.</li>
+                        <li>Trascina il file marcato temporalmente (es. <code>nome_file_certificato.txt.asc</code>) nell'area designata.</li>
                     </ol>
                     <p>
                         Il sito verificherà automaticamente il timestamp di OpenTimestamps e mostrerà il risultato.
