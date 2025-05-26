@@ -1,0 +1,23 @@
+name: Deploy to Aruba via FTP
+
+on:
+  push:
+    branches:
+      - main  # o "master" se il tuo branch principale si chiama così
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Aruba
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: site
+          server-dir: /cypherpunk2140/
